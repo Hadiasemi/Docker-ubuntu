@@ -4,5 +4,5 @@
 ```bash
 sudo docker build -t ubuntu .
 
-sudo docker run --rm  -v $(pwd):/home/root -it  ubuntu
+sudo docker run --rm  -v $(pwd):/root -it  ubuntu
 ```

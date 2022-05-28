@@ -25,13 +25,11 @@ RUN apt-get  update && \
     # chown -R ${user} /home/${user}
 
 
+ADD .vimrc /root/.vimrc
 
+WORKDIR /root
 
-
-WORKDIR /home/${user}
-
-ADD .vimrc .
 
 USER ${user}
 
-CMD ["bash"]
+CMD ["byobu"]
