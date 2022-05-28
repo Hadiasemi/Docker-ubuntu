@@ -22,7 +22,6 @@ RUN apt-get  update && \
    rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash -g root ${user} 
-    # chown -R ${user} /home/${user}
 
 
 ADD .vimrc /${user}/.vimrc
