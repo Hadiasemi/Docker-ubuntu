@@ -18,13 +18,13 @@ RUN apt-get  update && \
    apt-get -y upgrade && \
    apt-get install -y build-essential && \
    apt-get install -y software-properties-common && \
-   apt-get install -y byobu curl git sudo htop man unzip vim wget bash-completion exuberant-ctags && \
+   apt-get install -y byobu python3-pip curl git sudo htop man unzip vim wget bash-completion exuberant-ctags && \
    rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash -g root ${user} 
 
 
-ADD .vimrc /${user}/.vimrc
+ADD .vimrc /home/${user}/.vimrc
 
 WORKDIR /${user}
 
@@ -32,3 +32,4 @@ WORKDIR /${user}
 USER ${user}
 
 CMD ["byobu"]
+
