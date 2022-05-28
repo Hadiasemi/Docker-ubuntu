@@ -10,7 +10,7 @@ FROM ubuntu:18.04
 # MAINTAINER Hadi Asemi
 LABEL maintainer="Hadi Asemi"
 
-# ENV user security
+ENV user security
 
 # Install:
 RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list      
@@ -21,13 +21,13 @@ RUN apt-get  update && \
    apt-get install -y byobu curl git sudo htop man unzip vim wget bash-completion exuberant-ctags && \
    rm -rf /var/lib/apt/lists/*
 
-# RUN useradd -ms /bin/bash -g root ${user} && \ 
+RUN useradd -ms /bin/bash -g root ${user} 
     # chown -R ${user} /home/${user}
 
 
-ADD .vimrc /root/.vimrc
+ADD .vimrc /${user}/.vimrc
 
-WORKDIR /root
+WORKDIR /${user}
 
 
 USER ${user}
