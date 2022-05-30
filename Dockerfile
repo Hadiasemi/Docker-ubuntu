@@ -22,8 +22,9 @@ RUN apt-get  update && \
    apt-get install -y byobu python3-pip curl git sudo htop man unzip vim wget bash-completion exuberant-ctags && \
    rm -rf /var/lib/apt/lists/*
 
-RUN useradd -ms /bin/bash -g root ${user} 
-
+# RUN useradd -ms /bin/bash -g root ${user} 
+RUN /bin/bash -c 'useradd -m -s /bin/bash -g root ${user}; echo "${user}:PassW0rd" | chpasswd; \ 
+    echo "${user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers;'
 
 ADD .vimrc /home/${user}/.vimrc
 
