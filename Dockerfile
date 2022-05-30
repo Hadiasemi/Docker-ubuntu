@@ -5,12 +5,13 @@
 #
 
 # Pull base image.
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 # MAINTAINER Hadi Asemi
 LABEL maintainer="Hadi Asemi"
 
 ENV user security
+ENV DEBIAN_FRONTEND=nonintercative
 
 # Install:
 RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list      
